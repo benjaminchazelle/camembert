@@ -4,15 +4,15 @@
     "cpus": 4
   },
   "waitFor": "onCreateCommand",
-  "updateContentCommand": "npm install",
+  "updateContentCommand": "bash install.sh",
   "postCreateCommand": "",
   "postAttachCommand": {
-    "server": "npm start"
+    "server": "bash run.sh"
   },
   "customizations": {
     "codespaces": {
       "openFiles": [
-        "index.js"
+        "server.py"
       ]
     }
   },

@@ -1,0 +1,1 @@
+docker run -ti -v $PWD/site-packages:/opt/bitnami/python/lib/python3.8/site-packages-host -u root bitnami/pytorch:latest bash -c "pip install scikit-learn scipy matplotlib tensorboardX hydra-core omegaconf regex requests install sentencepiece bitarray tqdm sacrebleu && cp -r /opt/bitnami/python/lib/python3.8/site-packages/* /opt/bitnami/python/lib/python3.8/site-packages-host"

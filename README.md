@@ -1,13 +1,36 @@
-# GitHub Codespaces ♥️ Express
+# CamemBERT API
 
-Welcome to your shiny new Codespace running Express! We've got everything fired up and running for you to explore Express.
+## About
 
-You've got a blank canvas to work on from a git perspective as well. There's a single initial commit with the what you're seeing right now - where you go from here is up to you!
+A codespace to run the [French CamemBERT language model](https://camembert-model.fr/) which is a great model for text prediction based on [RoBERTa architecture](https://ai.facebook.com/blog/roberta-an-optimized-method-for-pretraining-self-supervised-nlp-systems/) through a minimalist web API.
 
-Everything you do here is contained within this one codespace. There is no repository on GitHub yet. If and when you’re ready you can click "Publish Branch" and we’ll create your repository and push up your project. If you were just exploring then and have no further need for this code then you can simply delete your codespace and it's gone forever.
+This project use the 110M parameters [`camembert-base`](https://dl.fbaipublicfiles.com/fairseq/models/camembert-base.tar.gz) version of the model, trained with [OSCAR](https://oscar-corpus.com/) (138 Gb of text).
 
-To run this application:
+Under the hood, the model is run in Docker image containing a Python + PyTorch environment.
+
+## Install
+
+Python dependencies can be installed thanks to this command.
 
 ```
-npm start
+install.sh
 ```
+
+Model dependency is solved during the first run.
+
+## Run
+
+```
+run.sh
+```
+
+## API usage
+
+```
+GET /?pattern=Hello <mask>
+```
+
+The `pattern` query parameter is mandatory and must contain the `<mask>` occurence.
+
+Result is a JSON string array containing word predictions sorted by probability.
+
